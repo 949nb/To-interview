@@ -18,6 +18,10 @@
 
 import Vue from 'vue'
 
+// if the table component cannot access `this.$axios`, it cannot send request
+// import axios from 'axios'
+// Vue.prototype.$axios = axios
+
 export default function({$axios, store, app, redirect}) {
   $axios.onRequest(config => {
     let url = config.url
