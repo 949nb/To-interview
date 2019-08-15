@@ -1,13 +1,13 @@
 <template>
   <div>
     <div>
+      <!-- 搜索表单 -->
       <el-form-renderer inline :content="content" ref="form">
         <el-form-item>
           <el-button type="primary" @click="printValue">搜索</el-button>
           <el-button @click="data = {}">重置</el-button>
         </el-form-item>
       </el-form-renderer>
-      <pre>{{ data }}</pre>
     </div>
     <el-data-table v-bind="$data" />
   </div>
@@ -50,13 +50,22 @@ export default {
           }
         },
         {
-          id: 'a',
-          type: 'input',
+          id: 'classification',
+          type: 'select',
           label: '分类',
-          default: 'alvin',
           el: {
             placeholder: '请选择'
-          }
+          },
+          options: [
+            {
+              label: 'java',
+              value: 'java'
+            },
+            {
+              label: 'javascript',
+              value: 'javascript'
+            }
+          ]
         },
         {
           id: 'formStatus',
@@ -67,12 +76,12 @@ export default {
           },
           options: [
             {
-              label: 'shanghai',
-              value: 'shanghai'
+              label: '上架',
+              value: 'active'
             },
             {
-              label: 'beijing',
-              value: 'beijing'
+              label: '未上架',
+              value: 'unactive'
             }
           ]
         }
